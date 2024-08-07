@@ -6,6 +6,7 @@
     >
       &#10004
     </span>
+    <span @click="deleteTodo(todo.id)">&#10060</span>
   </div>
 </template>
 
@@ -17,11 +18,12 @@ export default {
   setup() {
     const store = useTodoListStore()
     const { todoList } = storeToRefs(store)
-    const { toggleCompleted } = store
+    const { toggleCompleted, deleteTodo } = store
 
     return {
       todoList,
-      toggleCompleted
+      toggleCompleted,
+      deleteTodo
     }
   }
 }
