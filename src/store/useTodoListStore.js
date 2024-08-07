@@ -19,6 +19,14 @@ export const useTodoListStore = defineStore('todoList', {
       this.todoList = this.todoList.filter((object) => {
         return object.id !== itemID
       })
+    },
+
+    toggleCompleted(id) {
+      const todo = this.todoList.find((obj) => obj.id === id)
+
+      if (todo) {
+        todo.completed = !todo.completed
+      }
     }
   }
 })
