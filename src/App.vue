@@ -1,10 +1,19 @@
-<script setup>
+<script>
+import TodoForm from '@/components/TodoForm.vue';
+import TodoList from '@/components/TodoList.vue';
 
+export default {
+  components: { TodoForm, TodoList },
+  setup() {
+
+  }
+}
 </script>
 
 <template>
   <main>
-    
+    <TodoForm />
+    <TodoList />
   </main>
 </template>
 
