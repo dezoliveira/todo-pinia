@@ -1,7 +1,9 @@
 <template>
   <form @submit.prevent="addItemAndClear(todo)">
-    <input v-model="todo" type="text"/>
-    <button>Add</button>
+    <div class="flex gap-2 p-4">
+      <input v-model="todo" type="text" class="input input-bordered w-full max-w-xs"/>
+      <button class="btn btn-primary">Add</button>
+    </div>
   </form>
 </template>
 
