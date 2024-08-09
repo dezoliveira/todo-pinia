@@ -1,5 +1,5 @@
 <template>
-  <ul v-show="todoList.length" class="menu bg-base-200 rounded-box w-full">
+  <ul v-show="todoList.length" class="menu bg-base-200 rounded-box">
     <li v-for="todo in todoList" :key="todo.id">
       <div :class="{ completed: todo.completed }">
         <span>{{ todo.item }}</span>

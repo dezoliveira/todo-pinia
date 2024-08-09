@@ -1,9 +1,10 @@
 <script>
 import TodoForm from '@/components/TodoForm.vue';
 import TodoList from '@/components/TodoList.vue';
+import TodoNavbar from '@/components/TodoNavbar.vue';
 
 export default {
-  components: { TodoForm, TodoList },
+  components: { TodoForm, TodoList, TodoNavbar },
   setup() {
 
   }
@@ -11,6 +12,7 @@ export default {
 </script>
 
 <template>
+  <TodoNavbar />
   <main>
     <TodoForm />
     <TodoList />
@@ -18,6 +20,12 @@ export default {
 </template>
 
 <style scoped>
+main {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
 header {
   line-height: 1.5;
 }
