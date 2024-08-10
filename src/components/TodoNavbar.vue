@@ -7,8 +7,13 @@
     <button class="btn btn-ghost btn-circle" @click="toggleMenu">
       <div class="indicator relative">
         <div v-show="showMenu">
-          <ul class="menu menu-horizontal bg-base-200 rounded-box w-80 absolute top-0 right-3 overflow-y-scroll min-h-[200px] max-h-[200px] z-[10]">
-            <li v-if="todoList.length" v-for="todo in todoList.slice().reverse()" :key="todo.id" class="w-full">
+          <ul class="menu menu-horizontal bg-base-200 rounded-box w-60 sm:w-80 absolute top-0 right-0 sm:right-3 overflow-y-scroll min-h-[200px] max-h-[200px] z-[10]">
+            <li
+              v-if="todoList.length"
+              v-for="todo in todoList.slice().reverse()"
+              :key="todo.id"
+              class="w-full"
+            >
               <div class="flex flex-col items-start">
                 <p class="text-primary">{{ todo.item }}</p>
                 <small>
