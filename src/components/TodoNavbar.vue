@@ -4,8 +4,26 @@
     <a class="btn btn-ghost text-xl">Todo-pinia</a>
   </div>
   <div class="navbar-end">
-    <button class="btn btn-ghost btn-circle">
-      <div class="indicator">
+    <button class="btn btn-ghost btn-circle" @click="toggleMenu">
+      <div class="indicator relative">
+        <div v-show="showMenu">
+          <ul class="menu menu-horizontal bg-base-200 rounded-box w-80 absolute top-0 right-3 overflow-y-scroll min-h-[200px] max-h-[200px] z-[10]">
+            <li v-if="todoList.length" v-for="todo in todoList.slice().reverse()" :key="todo.id" class="w-full">
+              <div class="flex flex-col items-start">
+                <p class="text-primary">{{ todo.item }}</p>
+                <small>
+                  Created at 
+                  {{`${todo.createdAt.toLocaleDateString()} - ${todo.createdAt.toLocaleTimeString()}`}}
+                </small>
+              </div>
+            </li>
+            <li v-else>
+              <div>
+                No notifications available
+              </div>
+            </li>
+          </ul>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -35,14 +53,20 @@
 </template>
   
 <script>
+import { ref } from 'vue';
 import { storeToRefs } from 'pinia'
 import { useTodoListStore } from '@/store/useTodoListStore'
 export default {
   setup() {
     const store = useTodoListStore()
     const { todoList } = storeToRefs(store)
+    let showMenu = ref(false)
 
-    return { todoList }
+    const toggleMenu = () => {
+      showMenu.value = !showMenu.value
+    }
+
+    return { todoList, showMenu, toggleMenu }
   }
 }
 </script>

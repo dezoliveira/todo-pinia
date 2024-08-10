@@ -3,7 +3,8 @@ import { defineStore } from "pinia";
 export const useTodoListStore = defineStore('todoList', {
   state: () => ({
     todoList: [],
-    id: 0
+    id: 0,
+    createdAt: null
   }),
 
   actions: {
@@ -11,8 +12,11 @@ export const useTodoListStore = defineStore('todoList', {
       this.todoList.push({
         item,
         id: this.id++,
-        completed: false
+        completed: false,
+        createdAt: new Date()
       })
+
+      console.log(this.todoList)
     },
 
     deleteTodo(itemID) {
